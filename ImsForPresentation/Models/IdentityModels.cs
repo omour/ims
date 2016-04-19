@@ -44,5 +44,47 @@ namespace ImsForPresentation.Models
         //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
 
         //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
     }
 }

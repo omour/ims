@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm("Create", "Category", null, FormMethod.Post, new { enctype = "multipart/form-data" })) 
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
@@ -27,8 +27,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CategoryLogo, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.EditorFor(model => model.CategoryLogo)*@
-                <input type="file" id="imgCategoryLogo" name="imgCategoryLogo" />
+                @Html.EditorFor(model => model.CategoryLogo)
                 @Html.ValidationMessageFor(model => model.CategoryLogo)
             </div>
         </div>
@@ -41,7 +40,7 @@
             </div>
         </div>
 
-        @*<div class="form-group">
+        <div class="form-group">
             @Html.LabelFor(model => model.ActiveStatus, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ActiveStatus)
@@ -71,7 +70,7 @@
                 @Html.EditorFor(model => model.UpdatedAt)
                 @Html.ValidationMessageFor(model => model.UpdatedAt)
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
