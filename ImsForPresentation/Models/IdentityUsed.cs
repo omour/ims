@@ -10,8 +10,8 @@ namespace ImsForPresentation.Models
         public string Description { get; set; }
         public Boolean ActiveStatus { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
         [ForeignKey("CreatedBy")]
         public ApplicationUser ApplicationUser { get; set; }

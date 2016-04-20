@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(new { CreatedAt = Model.CreatedAt }))
 {
     @Html.AntiForgeryToken()
     
@@ -41,27 +41,20 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreatedBy, "CreatedBy", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CreatedBy", String.Empty)
-                @Html.ValidationMessageFor(model => model.CreatedBy)
-            </div>
-        </div>
-
+       
         <div class="form-group">
             @Html.LabelFor(model => model.CreatedAt, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CreatedAt)
-                @Html.ValidationMessageFor(model => model.CreatedAt)
+                @Html.DisplayFor(model => model.CreatedAt)
+              
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.UpdatedAt, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UpdatedAt)
-                @Html.ValidationMessageFor(model => model.UpdatedAt)
+                @Html.DisplayFor(model => model.UpdatedAt)
+              
             </div>
         </div>
 

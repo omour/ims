@@ -1,8 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using ImsForPresentation.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ImsForPresentation.Controllers
 {
@@ -44,10 +47,21 @@ namespace ImsForPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,BrandName,BrandLogo,BrandWebSiteUrl,Description,ActiveStatus,CreatedBy,CreatedAt,UpdatedAt")] Brand brand)
+        public ActionResult Create([Bind(Include = "Id,BrandName,BrandLogo,BrandWebSiteUrl,Description,ActiveStatus")] Brand brand, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    string path = HttpContext.Server.MapPath("~/Images/BrandImages/" + file.FileName);
+                    file.SaveAs(path);
+                    brand.BrandLogo = file.FileName;
+                }
+                string currentUser = User.Identity.GetUserId();
+                brand.CreatedBy = currentUser;
+                brand.CreatedAt = DateTime.Now;
+                brand.UpdatedAt = DateTime.Now;
+
                 db.Brands.Add(brand);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +92,19 @@ namespace ImsForPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,BrandName,BrandLogo,BrandWebSiteUrl,Description,ActiveStatus,CreatedBy,CreatedAt,UpdatedAt")] Brand brand)
+        public ActionResult Edit([Bind(Include = "Id,BrandName,BrandLogo,BrandWebSiteUrl,Description,ActiveStatus,CreatedBy,CreatedAt,UpdatedAt")] Brand brand, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    string path = HttpContext.Server.MapPath("~/Images/BrandImages/" + file.FileName);
+                    file.SaveAs(path);
+                    brand.BrandLogo = file.FileName;
+                }
+                string currentUser = User.Identity.GetUserId();
+                brand.CreatedBy = currentUser;
+                brand.UpdatedAt = (DateTime)DateTime.Now;
                 db.Entry(brand).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

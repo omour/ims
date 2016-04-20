@@ -1,8 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ImsForPresentation.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ImsForPresentation.Controllers
 {
@@ -44,10 +46,14 @@ namespace ImsForPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,FeatureName,Description,ActiveStatus,CreatedBy,CreatedAt,UpdatedAt")] FeaturePalette featurepalette)
+        public ActionResult Create([Bind(Include="Id,FeatureName,Description,ActiveStatus")] FeaturePalette featurepalette)
         {
             if (ModelState.IsValid)
             {
+                string currentUser = User.Identity.GetUserId();
+                featurepalette.CreatedBy = currentUser;
+                featurepalette.CreatedAt = (DateTime)DateTime.Now;
+                featurepalette.UpdatedAt = (DateTime)DateTime.Now;
                 db.FeaturePalettes.Add(featurepalette);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +84,13 @@ namespace ImsForPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,FeatureName,Description,ActiveStatus,CreatedBy,CreatedAt,UpdatedAt")] FeaturePalette featurepalette)
+        public ActionResult Edit([Bind(Include="Id,FeatureName,Description,ActiveStatus,CreatedAt")] FeaturePalette featurepalette)
         {
             if (ModelState.IsValid)
             {
+                string currentUser = User.Identity.GetUserId();
+                featurepalette.CreatedBy = currentUser;
+                featurepalette.UpdatedAt = (DateTime)DateTime.Now;
                 db.Entry(featurepalette).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

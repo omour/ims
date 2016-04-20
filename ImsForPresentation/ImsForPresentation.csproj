@@ -163,7 +163,6 @@
     <Compile Include="Controllers\AdminOrderStatusController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\CategoryControllerExcluded.cs" />
     <Compile Include="Controllers\DifferentProducerController.cs" />
     <Compile Include="Controllers\FeatureController.cs" />
     <Compile Include="Controllers\FeaturePaletteController.cs" />
@@ -189,6 +188,30 @@
     <Compile Include="Migrations\201604170751475_t1.cs" />
     <Compile Include="Migrations\201604170751475_t1.Designer.cs">
       <DependentUpon>201604170751475_t1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604191527190_init_19_4_16_9pm.cs" />
+    <Compile Include="Migrations\201604191527190_init_19_4_16_9pm.Designer.cs">
+      <DependentUpon>201604191527190_init_19_4_16_9pm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604191925429_init_19_4_16_9pm1.cs" />
+    <Compile Include="Migrations\201604191925429_init_19_4_16_9pm1.Designer.cs">
+      <DependentUpon>201604191925429_init_19_4_16_9pm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604201648301_add_FeaturePaletteId_in_Feature.cs" />
+    <Compile Include="Migrations\201604201648301_add_FeaturePaletteId_in_Feature.Designer.cs">
+      <DependentUpon>201604201648301_add_FeaturePaletteId_in_Feature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604201700449_add_FeaturePaletteId_in_Feature1.cs" />
+    <Compile Include="Migrations\201604201700449_add_FeaturePaletteId_in_Feature1.Designer.cs">
+      <DependentUpon>201604201700449_add_FeaturePaletteId_in_Feature1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604201703126_add_FeaturePaletteId_in_Feature_2.cs" />
+    <Compile Include="Migrations\201604201703126_add_FeaturePaletteId_in_Feature_2.Designer.cs">
+      <DependentUpon>201604201703126_add_FeaturePaletteId_in_Feature_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604202031540_add_ProductImage.cs" />
+    <Compile Include="Migrations\201604202031540_add_ProductImage.Designer.cs">
+      <DependentUpon>201604202031540_add_ProductImage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcceptedRouteForRole.cs" />
@@ -268,8 +291,6 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\CategoryExcluded\Index.cshtml" />
-    <Content Include="Views\CategoryExcluded\Create.cshtml" />
     <Content Include="Views\HouseType\Create.cshtml" />
     <Content Include="Views\HouseType\Delete.cshtml" />
     <Content Include="Views\HouseType\Details.cshtml" />
@@ -305,21 +326,11 @@
     <Content Include="Views\FeaturePalette\Details.cshtml" />
     <Content Include="Views\FeaturePalette\Edit.cshtml" />
     <Content Include="Views\FeaturePalette\Index.cshtml" />
-    <Content Include="Views\Feature\Create.cshtml" />
-    <Content Include="Views\Feature\Delete.cshtml" />
-    <Content Include="Views\Feature\Details.cshtml" />
-    <Content Include="Views\Feature\Edit.cshtml" />
-    <Content Include="Views\Feature\Index.cshtml" />
     <Content Include="Views\SIUni\Create.cshtml" />
     <Content Include="Views\SIUni\Delete.cshtml" />
     <Content Include="Views\SIUni\Details.cshtml" />
     <Content Include="Views\SIUni\Edit.cshtml" />
     <Content Include="Views\SIUni\Index.cshtml" />
-    <Content Include="Views\Product\Create.cshtml" />
-    <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\HouseProduct\Create.cshtml" />
     <Content Include="Views\HouseProduct\Delete.cshtml" />
     <Content Include="Views\HouseProduct\Details.cshtml" />
@@ -380,6 +391,16 @@
     <Content Include="Views\AdminOrder\Details.cshtml" />
     <Content Include="Views\AdminOrder\Edit.cshtml" />
     <Content Include="Views\AdminOrder\Index.cshtml" />
+    <Content Include="Views\Feature\Create.cshtml" />
+    <Content Include="Views\Feature\Delete.cshtml" />
+    <Content Include="Views\Feature\Details.cshtml" />
+    <Content Include="Views\Feature\Edit.cshtml" />
+    <Content Include="Views\Feature\Index.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -399,6 +420,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604170751475_t1.resx">
       <DependentUpon>201604170751475_t1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604191527190_init_19_4_16_9pm.resx">
+      <DependentUpon>201604191527190_init_19_4_16_9pm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604191925429_init_19_4_16_9pm1.resx">
+      <DependentUpon>201604191925429_init_19_4_16_9pm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604201648301_add_FeaturePaletteId_in_Feature.resx">
+      <DependentUpon>201604201648301_add_FeaturePaletteId_in_Feature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604201700449_add_FeaturePaletteId_in_Feature1.resx">
+      <DependentUpon>201604201700449_add_FeaturePaletteId_in_Feature1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604201703126_add_FeaturePaletteId_in_Feature_2.resx">
+      <DependentUpon>201604201703126_add_FeaturePaletteId_in_Feature_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604202031540_add_ProductImage.resx">
+      <DependentUpon>201604202031540_add_ProductImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

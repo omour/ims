@@ -1,13 +1,16 @@
-﻿@model ImsForPresentation.Models.Category
+﻿@using Microsoft.AspNet.Identity
+@model ImsForPresentation.Models.Category
 
 @{
     ViewBag.Title = "Create";
+    var userId = User.Identity.GetUserName(); 
 }
 
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Category", null, FormMethod.Post,
+                            new { enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
     
@@ -26,10 +29,22 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.CategoryLogo, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @*<div class="col-md-10">
                 @Html.EditorFor(model => model.CategoryLogo)
                 @Html.ValidationMessageFor(model => model.CategoryLogo)
-            </div>
+            </div>*@
+            @*<fieldset>
+                <legend>Image</legend>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.CategoryLogo)
+                </div>
+                <div class="editor-field">
+                    <input id="CategoryLogo" title="Upload a product image"
+                           type="file" name="file" />
+                </div>
+                
+            </fieldset>*@
+            <input type="file" id="CategoryLogo" name="file" />
         </div>
 
         <div class="form-group">
@@ -48,29 +63,29 @@
             </div>
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.CreatedBy, "CreatedBy", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("CreatedBy", String.Empty)
                 @Html.ValidationMessageFor(model => model.CreatedBy)
             </div>
-        </div>
+        </div>*@
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.CreatedAt, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CreatedAt)
                 @Html.ValidationMessageFor(model => model.CreatedAt)
             </div>
-        </div>
+        </div>*@
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.UpdatedAt, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.UpdatedAt)
                 @Html.ValidationMessageFor(model => model.UpdatedAt)
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

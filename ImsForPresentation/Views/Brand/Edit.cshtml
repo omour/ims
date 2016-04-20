@@ -7,10 +7,11 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Brand", null, FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+    @Html.Hidden("CreatedAt", Model.CreatedAt);
     <div class="form-horizontal">
         <h4>Brand</h4>
         <hr />
@@ -28,8 +29,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.BrandLogo, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BrandLogo)
-                @Html.ValidationMessageFor(model => model.BrandLogo)
+                <input type="file" id="BrandLogo" name="file" />
+
             </div>
         </div>
 
@@ -57,30 +58,7 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreatedBy, "CreatedBy", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CreatedBy", String.Empty)
-                @Html.ValidationMessageFor(model => model.CreatedBy)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreatedAt, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreatedAt)
-                @Html.ValidationMessageFor(model => model.CreatedAt)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UpdatedAt, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UpdatedAt)
-                @Html.ValidationMessageFor(model => model.UpdatedAt)
-            </div>
-        </div>
-
+        
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />

@@ -41,6 +41,10 @@ namespace ImsForPresentation.Models
         public DbSet<ProductOrder> ProductOrders { get; set; }
         public DbSet<ProductListInOrderScript> ProductListInOrderScripts { get; set; }
 
+      //  public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
+        //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
+
         //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }
 
         //public System.Data.Entity.DbSet<ImsForPresentation.Models.ApplicationUser> IdentityUsers { get; set; }

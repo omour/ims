@@ -1,8 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using ImsForPresentation.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ImsForPresentation.Controllers
 {
@@ -44,10 +47,21 @@ namespace ImsForPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,CategoryName,CategoryLogo,Description,ActiveStatus,CreatedBy,CreatedAt,UpdatedAt")] Category category)
+        public ActionResult Create([Bind(Include = "Id,CategoryName,CategoryLogo,Description,ActiveStatus,CreatedBy")] Category category, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                if (file != null)
+                {
+                    string path = HttpContext.Server.MapPath("~/Images/CategoryImages/" + file.FileName);
+                    file.SaveAs(path);
+                    category.CategoryLogo = file.FileName;
+                }
+                
+                string currentUser = User.Identity.GetUserId();
+                category.CreatedBy = currentUser;
+                category.CreatedAt=DateTime.Now;
+                category.UpdatedAt=DateTime.Now;
                 db.Categories.Add(category);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +92,13 @@ namespace ImsForPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,CategoryName,CategoryLogo,Description,ActiveStatus,CreatedBy,CreatedAt,UpdatedAt")] Category category)
+        public ActionResult Edit([Bind(Include = "Id,CategoryName,CategoryLogo,Description,ActiveStatus,CreatedAt")] Category category)
         {
             if (ModelState.IsValid)
             {
+                string currentUser = User.Identity.GetUserId();
+                category.CreatedBy = currentUser;
+                category.UpdatedAt=(DateTime)DateTime.Now;
                 db.Entry(category).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

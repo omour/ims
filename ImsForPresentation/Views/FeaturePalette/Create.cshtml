@@ -40,29 +40,9 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreatedBy, "CreatedBy", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CreatedBy", String.Empty)
-                @Html.ValidationMessageFor(model => model.CreatedBy)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CreatedAt, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreatedAt)
-                @Html.ValidationMessageFor(model => model.CreatedAt)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UpdatedAt, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UpdatedAt)
-                @Html.ValidationMessageFor(model => model.UpdatedAt)
-            </div>
-        </div>
+       
+      
+        
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

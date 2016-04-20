@@ -1,8 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ImsForPresentation.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ImsForPresentation.Controllers
 {
@@ -44,10 +46,14 @@ namespace ImsForPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,UnitName,Sign,Description,ActiveStatus,CreatedBy,CreatedAt,UpdatedAt")] SiUnit siunit)
+        public ActionResult Create([Bind(Include="Id,UnitName,Sign,Description,ActiveStatus")] SiUnit siunit)
         {
             if (ModelState.IsValid)
             {
+                string currentUser = User.Identity.GetUserId();
+                siunit.CreatedBy = currentUser;
+                siunit.CreatedAt = DateTime.Now;
+                siunit.UpdatedAt = DateTime.Now;
                 db.SiUnits.Add(siunit);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,10 +84,13 @@ namespace ImsForPresentation.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,UnitName,Sign,Description,ActiveStatus,CreatedBy,CreatedAt,UpdatedAt")] SiUnit siunit)
+        public ActionResult Edit([Bind(Include="Id,UnitName,Sign,Description,ActiveStatus,CreatedAt")] SiUnit siunit)
         {
             if (ModelState.IsValid)
             {
+                string currentUser = User.Identity.GetUserId();
+              
+                siunit.UpdatedAt = (DateTime)DateTime.Now;
                 db.Entry(siunit).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

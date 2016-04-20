@@ -10,11 +10,13 @@ namespace ImsForPresentation.Models
         [Required]
         public string ProductName { get; set; }
         public string ProductModel { get; set; }
+
         public int CategoryId { get; set; }
         public int BrandId { get; set; }
         public int SiUnitId { get; set; }
         public int FeaturePaletteId { get; set; }
         public decimal Stock { get; set; }
+        public string ProductImage { get; set; }
 
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
